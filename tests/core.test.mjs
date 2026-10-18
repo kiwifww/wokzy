@@ -1,0 +1,16 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {canonical,displayAmount,ingredientStatus,matchRecipe,sortRecipes,shoppingText} from '../dist/core.js';
+import {seedRecipes} from '../dist/data.js';
+const tomato=seedRecipes.find(r=>r.id==='tomato-eggs');
+const stock=[{name:'西红柿',qty:2,unit:'个'},{name:'鸡蛋',qty:3,unit:'个'},{name:'盐',qty:1,unit:'千克'},{name:'食用油',qty:1,unit:'升'}];
+test('别名统一，但不合并不同食材',()=>{assert.equal(canonical(' 西红柿 '),'番茄');assert.notEqual(canonical('鸡腿肉'),canonical('鸡蛋'));});
+test('未录入的调料需要准备',()=>{const m=matchRecipe(tomato,stock.filter(p=>p.name!=='盐'));assert.equal(m.ready,false);assert.deepEqual(m.missing.map(i=>i.name),['盐']);});
+test('可选食材不阻止推荐，兼容单位可以换算',()=>{const m=matchRecipe(tomato,stock);assert.equal(m.ready,true);assert.equal(m.unknown.length,0);assert.equal(m.items.find(i=>i.name==='盐').status.kind,'enough');});
+test('库存未填数量时不能声称数量足够',()=>{const m=matchRecipe(tomato,stock.map(p=>({...p,qty:null})));assert.equal(m.ready,true);assert.equal(m.unknown.length,4);});
+test('个和克不可直接转换',()=>{assert.equal(ingredientStatus(tomato.ingredients[0],[{name:'番茄',qty:500,unit:'克'}],2,2).kind,'unknown');});
+test('人数变化会检查数量不足',()=>{const m=matchRecipe(tomato,stock,4);assert.equal(m.ready,false);assert.equal(m.short.length,2);assert.equal(m.short[0].status.shortage,2);});
+test('用量按份数缩放，适量文字保持原样',()=>{assert.equal(displayAmount(tomato.ingredients[1],4,2),'6个');assert.equal(displayAmount(tomato.ingredients.find(i=>i.name==='白糖'),4,2),'适量');});
+test('缺料清单使用差额，不重复购买全部用量',()=>{const text=shoppingText(tomato,stock,4);assert.match(text,/番茄 2个（需补充）/);assert.match(text,/鸡蛋 3个（需补充）/);assert.doesNotMatch(text,/白糖|盐/);});
+test('食材匹配优先排序，无库存也能浏览',()=>{assert.equal(sortRecipes(seedRecipes,stock)[0].id,'tomato-eggs');assert.equal(sortRecipes(seedRecipes,[]).length,seedRecipes.length);});
+test('示例菜谱均有材料、步骤及独立的图片来源信息',()=>{for(const r of seedRecipes){assert.ok(r.ingredients.length>0);assert.ok(r.steps.length>0);assert.ok(r.servings>0);assert.ok(r.photoSource);assert.ok(r.steps.every(s=>s.title&&s.text));}});
