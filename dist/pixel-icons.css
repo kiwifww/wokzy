@@ -1,0 +1,27 @@
+/* Fixed local pixel sprites: transparent PNGs, nearest-neighbor scaling. */
+.pixel-icon{display:inline-block;width:24px;height:24px;object-fit:contain;vertical-align:middle;flex-shrink:0;image-rendering:pixelated;image-rendering:crisp-edges}
+.ingredient-chip>span{display:inline-flex;align-items:center;justify-content:center;line-height:1}
+.ingredient-chip .pixel-icon{width:24px;height:24px}
+.stock-icon{display:grid;place-items:center;width:48px;height:48px;flex-shrink:0}
+.stock-icon .pixel-icon{width:48px;height:48px}
+.stock-card>div{min-width:0}
+.stock-card b{overflow-wrap:anywhere}
+.pantry-pixels{display:flex;align-items:center;gap:0;transform:none;letter-spacing:normal}
+.pantry-pixels>.pixel-icon{width:72px;height:72px}
+.pantry-pixels>.pixel-icon:nth-child(2){width:48px;height:48px;align-self:flex-end}
+.empty-art{font-size:0;display:flex;align-items:center;justify-content:center}
+.empty-art .pixel-icon{width:48px;height:48px}
+.empty-art>svg{color:#9bad87}
+.card-image .recipe-placeholder>.pixel-icon{width:72px;height:72px;object-fit:contain;margin-bottom:4px}
+.detail-cover>span .pixel-icon{width:96px;height:96px}
+.cook-title>span{display:flex;align-items:center;justify-content:center}
+.cook-title>span .pixel-icon{width:48px;height:48px}
+.ingredient-row>.pixel-icon{width:24px;height:24px}
+.cook-ingredients>div>span{display:flex;align-items:center;gap:7px;min-width:0}
+.cook-ingredients>div .pixel-icon{width:24px;height:24px}
+.staple-item>button:first-child{gap:7px;overflow-wrap:anywhere}
+.staple-item>button:first-child .pixel-icon{width:24px;height:24px}
+.staple-amount{padding-left:54px}
+@media(max-width:1000px){.pantry-pixels{padding:0 7px}.pantry-pixels>.pixel-icon{width:48px;height:48px}.pantry-pixels>.pixel-icon:nth-child(2){width:48px;height:48px}}
+@media(max-width:760px){.stock-icon,.stock-icon .pixel-icon{width:36px;height:36px}.ingredient-row>.pixel-icon{width:24px;height:24px}.cook-ingredients{gap:10px 16px}.cook-ingredients>div .pixel-icon{width:24px;height:24px}.staple-item>button:first-child{gap:6px}.staple-item>button:first-child .pixel-icon{width:20px;height:20px}.staple-amount{padding-left:48px}}
+@media(max-width:480px){.pantry-page-banner{padding-bottom:64px}.pantry-pixels{bottom:10px;right:15px;padding:0;opacity:1}.pantry-pixels>.pixel-icon{width:36px;height:36px}.pantry-pixels>.pixel-icon:nth-child(2){width:24px;height:24px}.stock-icon,.stock-icon .pixel-icon{width:36px;height:36px}.ingredient-row{gap:6px}.ingredient-row>.pixel-icon{width:20px;height:20px}.ingredient-row .ingredient-name{min-width:0}.ingredient-row .status{min-width:62px}.ingredient-row>b{min-width:40px}.staple-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.staple-item>button:first-child .pixel-icon{width:24px;height:24px}.staple-amount{padding-left:53px}.cook-title>span .pixel-icon{width:48px;height:48px}}

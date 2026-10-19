@@ -14,6 +14,7 @@
 - 份数调整、缺料清单复制、烹饪步骤及进度恢复。
 - 创建与编辑个人菜谱，手动整理网络参考内容并保留来源链接。
 - 做菜心得、浏览器数据保存、JSON 备份导出、体验反馈记录与复制。
+- 食材统一使用本地像素 PNG，覆盖常用食材、调料及通用图片，不依赖 emoji 字体。
 
 数据使用当前站点的浏览器 localStorage，不含账号和跨设备同步。首次打开为空食材库，用户可主动填入示例。测试与本地预览数据不随部署上传。
 
@@ -21,6 +22,8 @@
 
 ## 检查
 
-`node --test tests/core.test.mjs`
+`node --test tests/*.test.mjs`
+
+像素图源文件为 `scripts/build-pixel-icons.mjs`；运行 `node scripts/build-pixel-icons.mjs` 可重新生成全部 34 张 24×24 透明 PNG。名称映射和未知食材的通用图定义在 `dist/ingredient-icons.js`。已有浏览器记录无需迁移。
 
 需求依据见上级目录 `docs/requirements-v0.1.md`。静态产物位于 `dist/`，Sites 身份和部署配置保存在 `.openai/hosting.json`。
