@@ -1,0 +1,467 @@
+{
+  "vegetable": [
+    {
+      "name": "土豆",
+      "emoji": "🥔"
+    },
+    {
+      "name": "胡萝卜",
+      "emoji": "🥕"
+    },
+    {
+      "name": "花菜",
+      "emoji": "🌼",
+      "more": true
+    },
+    {
+      "name": "西兰花",
+      "emoji": "🥦"
+    },
+    {
+      "name": "白萝卜",
+      "emoji": "🥣",
+      "more": true
+    },
+    {
+      "name": "西葫芦",
+      "emoji": "🥒",
+      "more": true
+    },
+    {
+      "name": "番茄",
+      "emoji": "🍅",
+      "alias": "西红柿"
+    },
+    {
+      "name": "芹菜",
+      "emoji": "🥬",
+      "more": true
+    },
+    {
+      "name": "黄瓜",
+      "emoji": "🥒"
+    },
+    {
+      "name": "洋葱",
+      "emoji": "🧅"
+    },
+    {
+      "name": "青椒",
+      "emoji": "🫑"
+    },
+    {
+      "name": "莴笋",
+      "emoji": "🎍",
+      "more": true
+    },
+    {
+      "name": "菌菇",
+      "emoji": "🍄"
+    },
+    {
+      "name": "茄子",
+      "emoji": "🍆"
+    },
+    {
+      "name": "豆腐",
+      "emoji": "🍲"
+    },
+    {
+      "name": "包菜",
+      "emoji": "🥗"
+    },
+    {
+      "name": "白菜",
+      "emoji": "🥬"
+    },
+    {
+      "name": "菠菜",
+      "emoji": "🥬",
+      "more": true
+    },
+    {
+      "name": "空心菜",
+      "emoji": "🌿",
+      "more": true
+    },
+    {
+      "name": "玉米",
+      "emoji": "🌽",
+      "more": true
+    },
+    {
+      "name": "苦瓜",
+      "emoji": "🥒",
+      "more": true
+    },
+    {
+      "name": "辣椒",
+      "emoji": "🌶️",
+      "more": true
+    },
+    {
+      "name": "豆角",
+      "emoji": "🫛",
+      "more": true
+    },
+    {
+      "name": "冬瓜",
+      "emoji": "🍈",
+      "more": true
+    },
+    {
+      "name": "生菜",
+      "emoji": "🥬",
+      "more": true
+    },
+    {
+      "name": "豆芽",
+      "emoji": "🌱",
+      "more": true
+    },
+    {
+      "name": "青菜",
+      "emoji": "🥬",
+      "more": true
+    },
+    {
+      "name": "韭菜",
+      "emoji": "🥬",
+      "more": true
+    },
+    {
+      "name": "日本豆腐",
+      "emoji": "🍲",
+      "more": true
+    },
+    {
+      "name": "红椒",
+      "emoji": "🫑",
+      "more": true
+    },
+    {
+      "name": "菠萝",
+      "emoji": "🍍",
+      "more": true
+    },
+    {
+      "name": "蒜苔",
+      "emoji": "🌱",
+      "more": true
+    },
+    {
+      "name": "木耳",
+      "emoji": "🍄",
+      "more": true
+    },
+    {
+      "name": "酸菜",
+      "emoji": "🥬",
+      "more": true
+    },
+    {
+      "name": "腐竹",
+      "emoji": "🫘",
+      "more": true
+    },
+    {
+      "name": "梅菜",
+      "emoji": "🥬",
+      "more": true
+    },
+    {
+      "name": "茭白",
+      "emoji": "🥬",
+      "more": true
+    },
+    {
+      "name": "荷兰豆",
+      "emoji": "🫛",
+      "more": true
+    },
+    {
+      "name": "油麦菜",
+      "emoji": "🥬",
+      "more": true
+    },
+    {
+      "name": "香干",
+      "emoji": "🫘",
+      "more": true
+    },
+    {
+      "name": "千张",
+      "emoji": "🫘",
+      "more": true
+    },
+    {
+      "name": "山药",
+      "emoji": "🥔",
+      "more": true
+    },
+    {
+      "name": "南瓜",
+      "emoji": "🎃",
+      "more": true
+    },
+    {
+      "name": "板栗",
+      "emoji": "🌰",
+      "more": true
+    },
+    {
+      "name": "红枣",
+      "emoji": "🫘",
+      "more": true
+    },
+    {
+      "name": "黄花菜",
+      "emoji": "🌼",
+      "more": true
+    },
+    {
+      "name": "紫菜",
+      "emoji": "🌿",
+      "more": true
+    },
+    {
+      "name": "青豆",
+      "emoji": "🫛",
+      "more": true
+    },
+    {
+      "name": "酸笋",
+      "emoji": "🎍",
+      "more": true
+    }
+  ],
+  "meat": [
+    {
+      "name": "午餐肉",
+      "emoji": "🥓",
+      "more": true
+    },
+    {
+      "name": "香肠",
+      "emoji": "🌭"
+    },
+    {
+      "name": "腊肠",
+      "emoji": "🌭",
+      "more": true
+    },
+    {
+      "name": "鸡肉",
+      "emoji": "🐤"
+    },
+    {
+      "name": "猪肉",
+      "emoji": "🐷"
+    },
+    {
+      "name": "鸡蛋",
+      "emoji": "🥚"
+    },
+    {
+      "name": "虾",
+      "emoji": "🦐"
+    },
+    {
+      "name": "牛肉",
+      "emoji": "🐮"
+    },
+    {
+      "name": "骨头",
+      "emoji": "🦴",
+      "more": true
+    },
+    {
+      "name": "鱼",
+      "emoji": "🐟"
+    },
+    {
+      "name": "鸭肉",
+      "emoji": "🦆",
+      "more": true
+    },
+    {
+      "name": "羊肉",
+      "emoji": "🐑",
+      "more": true
+    },
+    {
+      "name": "牛奶",
+      "emoji": "🥛",
+      "more": true
+    },
+    {
+      "name": "酸奶",
+      "emoji": "🥛",
+      "more": true
+    },
+    {
+      "name": "淡奶油",
+      "emoji": "🥛",
+      "more": true
+    },
+    {
+      "name": "黄油",
+      "emoji": "🧈",
+      "more": true
+    },
+    {
+      "name": "皮蛋",
+      "emoji": "🥚",
+      "more": true
+    },
+    {
+      "name": "血肠",
+      "emoji": "🌭",
+      "more": true
+    },
+    {
+      "name": "鲮鱼罐头",
+      "emoji": "🥫",
+      "more": true
+    },
+    {
+      "name": "咸肉",
+      "emoji": "🥓",
+      "more": true
+    },
+    {
+      "name": "火腿",
+      "emoji": "🥓",
+      "more": true
+    },
+    {
+      "name": "腊肉",
+      "emoji": "🥓",
+      "more": true
+    },
+    {
+      "name": "水浸金枪鱼罐头",
+      "emoji": "🥫",
+      "more": true
+    },
+    {
+      "name": "培根",
+      "emoji": "🥓",
+      "more": true
+    }
+  ],
+  "staple": [
+    {
+      "name": "面食",
+      "emoji": "🍝"
+    },
+    {
+      "name": "面包",
+      "emoji": "🍞"
+    },
+    {
+      "name": "米",
+      "emoji": "🍚"
+    },
+    {
+      "name": "方便面",
+      "emoji": "🍜"
+    },
+    {
+      "name": "粉丝",
+      "emoji": "🍜",
+      "more": true
+    },
+    {
+      "name": "粉条",
+      "emoji": "🍜",
+      "more": true
+    },
+    {
+      "name": "面粉",
+      "emoji": "🌾",
+      "more": true
+    },
+    {
+      "name": "山东煎饼",
+      "emoji": "🫓",
+      "more": true
+    },
+    {
+      "name": "河粉",
+      "emoji": "🍜",
+      "more": true
+    },
+    {
+      "name": "面筋",
+      "emoji": "🌾",
+      "more": true
+    },
+    {
+      "name": "米粉",
+      "emoji": "🍜",
+      "more": true
+    },
+    {
+      "name": "大米粉",
+      "emoji": "🌾",
+      "more": true
+    },
+    {
+      "name": "烧卖皮",
+      "emoji": "🥟",
+      "more": true
+    },
+    {
+      "name": "燕麦",
+      "emoji": "🌾",
+      "more": true
+    }
+  ],
+  "tools": [
+    {
+      "name": "烤箱",
+      "emoji": "",
+      "icon": "i-mdi-toaster-oven"
+    },
+    {
+      "name": "空气炸锅",
+      "emoji": "",
+      "icon": "i-fe-frying-pan"
+    },
+    {
+      "name": "微波炉",
+      "emoji": "",
+      "icon": "i-ic-outline-microwave"
+    },
+    {
+      "name": "电饭煲",
+      "emoji": "",
+      "icon": "i-gg-smart-home-cooker"
+    },
+    {
+      "label": "一口能炒又能煮的大锅",
+      "name": "一口大锅",
+      "emoji": "",
+      "icon": "i-mdi-pot-steam-outline"
+    },
+    {
+      "name": "电压力锅",
+      "emoji": "",
+      "icon": "i-mdi-pot-steam-outline",
+      "more": true
+    },
+    {
+      "name": "轻食机",
+      "emoji": "",
+      "icon": "i-mdi-toaster",
+      "more": true
+    },
+    {
+      "name": "料理机",
+      "emoji": "",
+      "icon": "i-mdi-blender",
+      "more": true
+    }
+  ]
+}

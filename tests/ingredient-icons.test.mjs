@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {ingredientAsset,ingredientImage,dishImage,ingredientIcons} from '../dist/ingredient-icons.js';
-import {seedRecipes} from '../dist/data.js';
+import {sampleRecipes as seedRecipes} from '../dist/data.js';
 
 test('每道示例菜谱的全部食材都有专属手绘图，包括调料',()=>{
  for(const r of seedRecipes)for(const i of r.ingredients)assert.notEqual(ingredientAsset(i.name),'assets/brush-ingredients/generic.png',i.name);

@@ -1,0 +1,24 @@
+{
+  "repository": "https://github.com/YunYouJun/cook",
+  "website": "https://cook.yunyoujun.cn/",
+  "commit": "3e6930d315dd7be73e7d0e8a6304f43841a9de3c",
+  "downloadedAt": "2026-11-09",
+  "recipeCount": 887,
+  "textCount": 232,
+  "bodyCount": 232,
+  "videoCount": 675,
+  "textSource": {
+    "name": "HowToCook",
+    "url": "https://github.com/Anduin2017/HowToCook",
+    "license": "Unlicense",
+    "commit": "0e106eea348c734fe1586f781202994439cf98a5"
+  },
+  "files": {
+    "recipe.csv": "98f1b90bc78726ba926f0d06a22902034d39dd9308540c6dc62f6c6b4a4ae3c9",
+    "recipe-text.json": "22e532da48022f98d375d93997c1437eda08b57e8086ebf493e0001c495523b8",
+    "recipe-amounts.json": "5eacea8726d04b968f561cb3a75af5a014e8225975d87f126f2ece063f968859",
+    "food.json": "178cd44a585e7d67bd02dd3c015e01d3f7a0d34495b38d9213bd253b94349d64",
+    "aliases.json": "28fa032d544b306dd04e2bc42672e9563a15745a93eb43963adc40076a29e90d",
+    "LICENSE": "f2a64465f48bb0b272508f5ea4abc61a72096d7af1e10c8279292237cc8d1895"
+  }
+}

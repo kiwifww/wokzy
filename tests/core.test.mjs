@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {canonical,displayAmount,ingredientStatus,matchRecipe,sortRecipes,shoppingText} from '../dist/core.js';
-import {seedRecipes} from '../dist/data.js';
+import {sampleRecipes as seedRecipes} from '../dist/data.js';
 const tomato=seedRecipes.find(r=>r.id==='tomato-eggs');
 const stock=[{name:'西红柿',qty:2,unit:'个'},{name:'鸡蛋',qty:3,unit:'个'},{name:'盐',qty:1,unit:'千克'},{name:'食用油',qty:1,unit:'升'}];
 test('别名统一，但不合并不同食材',()=>{assert.equal(canonical(' 西红柿 '),'番茄');assert.notEqual(canonical('鸡腿肉'),canonical('鸡蛋'));});

@@ -21,10 +21,11 @@ export function matchRecipe(recipe, pantry, servings=recipe.servings) {
   return {items,missing:required.filter(i=>i.status.kind==='missing'),short:required.filter(i=>i.status.kind==='short'),unknown:required.filter(i=>i.status.kind==='unknown'),mainMissing:required.filter(i=>i.category==='主料'&&i.status.kind==='missing').length,available:required.filter(i=>!['missing'].includes(i.status.kind)).length,ready:required.every(i=>!['missing','short'].includes(i.status.kind))};
 }
 export function sortRecipes(recipes,pantry) {
-  return [...recipes].sort((a,b)=>{const x=matchRecipe(a,pantry),y=matchRecipe(b,pantry);return Number(y.ready)-Number(x.ready)||x.mainMissing-y.mainMissing||(x.missing.length+x.short.length)-(y.missing.length+y.short.length)||y.available-x.available||a.minutes-b.minutes;});
+  return recipes.map(r=>({r,m:matchRecipe(r,pantry)})).sort(({r:a,m:x},{r:b,m:y})=>Number(y.ready)-Number(x.ready)||x.mainMissing-y.mainMissing||(x.missing.length+x.short.length)-(y.missing.length+y.short.length)||y.available-x.available||(a.minutes??Infinity)-(b.minutes??Infinity)).map(({r})=>r);
 }
 export function shoppingText(recipe,pantry,servings) {
   const m=matchRecipe(recipe,pantry,servings);
   const lines=m.items.filter(i=>!i.optional&&['missing','short'].includes(i.status.kind)).map(i=>`${i.name} ${i.status.kind==='short'?`${i.status.shortage}${i.unit}（需补充）`:displayAmount(i,servings,recipe.servings)}`);
+  if(recipe.ingredientsComplete===false)return `${recipe.name} · 主料索引（完整配料和用量请核对原文）\n${lines.length?'待补充主料：\n'+lines.join('\n'):'索引中的主料已匹配。'}\n来源：${recipe.sourceUrl}`;
   return lines.length?`${recipe.name} · ${servings}人份\n待准备：\n${lines.join('\n')}`:`${recipe.name}：食材种类已列齐${m.unknown.length?'，部分用量仍需确认':''}。`;
 }
