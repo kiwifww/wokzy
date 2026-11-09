@@ -34,3 +34,20 @@ test('视频索引详情只显示外部做法，文字菜谱可展开全文并�
  a.run('startCook()');html=a.node('#overlay').innerHTML;
  assert.match(html,/按原方/);assert.match(html,/将火腿肠撕开包装/);assert.doesNotMatch(html,/undefined|NaN/);
 });
+test('来源筛选与搜索、收藏组合生效；卡片与详情显示对应来源',()=>{
+ const a=app();assert.match(a.run('recipeToolbar()'),/筛选菜谱来源/);
+ a.run("sourceFilter='yunyoujun';renderCards()");assert.equal(a.node('#recipe-count').textContent,'887 道');
+ assert.match(a.node('#recipe-grid').innerHTML,/recipe-source source-yunyoujun">YunYouJun/);
+ a.run("sourceFilter='sample';renderCards()");assert.equal(a.node('#recipe-count').textContent,'6 道');
+ a.run("sourceFilter='mine';renderCards()");assert.equal(a.node('#recipe-count').textContent,'0 道');
+ a.run("state.recipes.push({...structuredClone(seedRecipes[0]),id:'my-test',sourceType:'原创',editedAt:'2026-11-09'});renderCards()");
+ assert.equal(a.node('#recipe-count').textContent,'1 道');assert.match(a.node('#recipe-grid').innerHTML,/source-mine">我的/);
+ a.run("sourceFilter='yunyoujun';query='蜜汁脆皮烤鸡';renderCards()");assert.equal(a.node('#recipe-count').textContent,'1 道');
+ a.run("page='favorites';state.favorites=['cook-169','my-test'];renderCards()");assert.equal(a.node('#recipe-count').textContent,'1 道');
+ a.run("detail('cook-169')");assert.match(a.node('#overlay').innerHTML,/detail-source source-yunyoujun">YunYouJun/);
+});
+test('改编后的上游菜谱在我的筛选中出现且保留 YunYouJun 标记',()=>{
+ const a=app();a.run("state.recipes.find(r=>r.id==='cook-169').editedAt='2026-11-09';sourceFilter='mine';renderCards()");
+ assert.equal(a.node('#recipe-count').textContent,'1 道');assert.match(a.node('#recipe-grid').innerHTML,/我的改编 · YunYouJun/);
+ a.run("sourceFilter='yunyoujun';renderCards()");assert.equal(a.node('#recipe-count').textContent,'886 道');
+});

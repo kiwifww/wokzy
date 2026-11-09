@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {seedRecipes,sampleRecipes} from '../dist/data.js';
 import {cookRecipes} from '../dist/cook-data.js';
-import {mergeCatalog,personalRecipes} from '../dist/catalog.js';
+import {mergeCatalog,personalRecipes,recipeSource} from '../dist/catalog.js';
 import {matchRecipe,shoppingText,sortRecipes} from '../dist/core.js';
 const source=JSON.parse(fs.readFileSync(new URL('../vendor/cook/recipe-text.json',import.meta.url)));
 test('上游全部 887 道索引导入，稳定 ID 不与原有菜谱冲突',()=>{
@@ -46,4 +46,12 @@ test('浏览器数据只保存个人记录，不重复写入大体积的公共�
  assert.ok(JSON.stringify(personalRecipes(seedRecipes)).length<20000);
  const restored=mergeCatalog(personalRecipes(seedRecipes),seedRecipes);
  assert.deepEqual(restored.map(r=>r.id),seedRecipes.map(r=>r.id));
+});
+test('菜谱来源区分自建、上游和示例，个人改编保留原始来源',()=>{
+ assert.deepEqual(recipeSource({sourceType:'原创'}),{id:'mine',label:'我的'});
+ assert.equal(recipeSource({sourceType:'参考网络整理'}).id,'mine');
+ assert.deepEqual(recipeSource(cookRecipes[0]),{id:'yunyoujun',label:'YunYouJun'});
+ assert.deepEqual(recipeSource({...cookRecipes[0],editedAt:'2026-11-09'}),{id:'mine',label:'我的改编 · YunYouJun'});
+ assert.deepEqual(recipeSource(sampleRecipes[0]),{id:'sample',label:'Wokzy 示例'});
+ assert.equal(recipeSource({...sampleRecipes[0],editedAt:'2026-11-09',originalSourceType:'示例菜谱'}).label,'我的改编 · Wokzy');
 });

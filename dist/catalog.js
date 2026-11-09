@@ -5,3 +5,8 @@ export function mergeCatalog(saved,catalog){
  return [...merged,...structuredClone([...byId.values()])];
 }
 export function personalRecipes(recipes){return recipes.filter(r=>!r.catalog||r.editedAt);}
+export function recipeSource(recipe){
+ if(recipe.catalog==='yunyoujun-cook')return recipe.editedAt?{id:'mine',label:'我的改编 · YunYouJun'}:{id:'yunyoujun',label:'YunYouJun'};
+ if(recipe.sourceType==='示例菜谱'&&!recipe.editedAt)return {id:'sample',label:'Wokzy 示例'};
+ return {id:'mine',label:recipe.editedAt&&recipe.originalSourceType==='示例菜谱'?'我的改编 · Wokzy':'我的'};
+}
