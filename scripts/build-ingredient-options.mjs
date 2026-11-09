@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import {canonical} from '../dist/core.js';
+const source=JSON.parse(fs.readFileSync(new URL('../vendor/cook/food.json',import.meta.url),'utf8'));
+const extras={vegetable:['香菇','小葱'],meat:['鸡腿肉','鸡胸肉','肉末'],staple:['熟米饭']};
+const titles={vegetable:'蔬菜与豆制品',meat:'肉蛋与海鲜',staple:'主食与面点'};
+const groups=Object.keys(titles).map(id=>({id,title:titles[id],staple:false,items:[...source[id].map(i=>({name:canonical(i.name),more:!!i.more})),...extras[id].map(name=>({name,more:false}))]}));
+groups.push({id:'seasoning',title:'常备调料',staple:true,items:['盐','食用油','生抽','白糖','蒜','姜','香油','淀粉','豆瓣酱','花椒粉','老抽','蚝油','料酒','醋'].map((name,i)=>({name,more:i>=10}))});
+for(const g of groups)g.items=g.items.filter((item,index,list)=>list.findIndex(i=>i.name===item.name)===index);
+fs.writeFileSync(new URL('../dist/ingredient-options.js',import.meta.url),'// Cook ingredient categories, adapted without emoji. See data-sources.html.\nexport const ingredientGroups='+JSON.stringify(groups)+';\n');
+console.log('Ingredient options:',groups.reduce((n,g)=>n+g.items.length,0));

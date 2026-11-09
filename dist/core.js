@@ -1,5 +1,5 @@
 export const aliases = { 西红柿:'番茄', 洋柿子:'番茄', 西蓝花:'西兰花', 青花菜:'西兰花', 生油:'食用油', 植物油:'食用油', 油:'食用油', 食盐:'盐', 大蒜:'蒜', 蒜头:'蒜', 葱花:'小葱', 葱:'小葱', 鲜香菇:'香菇', 米饭:'熟米饭', 剩米饭:'熟米饭', 猪肉末:'肉末' };
-export const canonical = name => aliases[name.trim()] || name.trim();
+export const canonical = name => {const key=name.trim();return Object.hasOwn(aliases,key)?aliases[key]:key;};
 export const displayAmount = (ingredient, servings, base) => ingredient.qty !== null && ingredient.qty !== undefined && ingredient.qty !== '' ? `${Math.round(Number(ingredient.qty) * servings / base * 100) / 100}${ingredient.unit || ''}` : (ingredient.amount || '适量');
 const units = {克:['mass',1],g:['mass',1],千克:['mass',1000],kg:['mass',1000],毫升:['volume',1],ml:['volume',1],升:['volume',1000],L:['volume',1000]};
 export function ingredientStatus(ingredient, pantry, servings, base) {
